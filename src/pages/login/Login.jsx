@@ -4,7 +4,6 @@ function Login() {
   return (
   <>
     <>Aqui é meu login</>
-    <Card/>
   </>
   );
 }
