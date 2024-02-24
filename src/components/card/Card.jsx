@@ -2,9 +2,9 @@ import tenis from "../../assets/images/tenis.png";
 
 function Card() {
   return (
-    <div aria-label="card" className="w-[176px]  border-solid shadow  border-2 rounded-lg ml-2 mt-2">
-      <img src={tenis} alt="" className="w-[176px] h-[134px] object-cover" />
-      <h3 className="text-xl font-bold leading-[120%] text-blue-900 ml-2">
+    <div aria-label="card" className="w-[144px]  border-solid shadow  border-2 rounded-lg ml-2 mt-2">
+      <img src={tenis} alt="" className=" object-cover" />
+      <h3 className="font-bold leading-[120%] text-blue-900 ml-2">
         Nique Air Surf
       </h3>
       <p className="text-[#DDD] text-xs font-medium ml-2">Tenis</p>
