@@ -1,6 +1,6 @@
 function InputHeader() {
   return (
-    <div className="relative ml-5 mr-5 peer-focus:hidden">
+    <div className="relative">
       <svg
         className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
         fill="none"
