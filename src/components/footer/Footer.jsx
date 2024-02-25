@@ -5,9 +5,9 @@ import { FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
   return (
-    <>
-      <footer className="bg-blue-900 items-center p-5">
-        <div className="flex flex-wrap gap-6">
+    
+      <footer className="bg-blue-900 items-center p-5 ">
+        <div className="flex flex-wrap gap-6 md:justify-center md:gap-32">
           <div className="mb-5">
             <div className="flex gap-5 items-center">
               <div className="w-[71.56px] h-[28px] ">
@@ -46,7 +46,7 @@ function Footer() {
         <hr className="mt-5" />
         <p className="text-xs text-center mt-1 text-white"> ₢ 2023 IRede</p>
       </footer>
-    </>
+    
   );
 }
 

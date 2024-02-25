@@ -1,7 +1,7 @@
 function Cadastro() {
   return (
   <>
-    Meu cadastro
+    Cadastre-se
   </>
   );
 }

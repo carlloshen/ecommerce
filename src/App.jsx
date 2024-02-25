@@ -1,11 +1,15 @@
-import Router from "./router/Router"
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import Router from "./router/Router";
 
 function App() {
-  
-
   return (
-    <Router/>
-  )
+    <>
+      <Header />
+      <Router />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
