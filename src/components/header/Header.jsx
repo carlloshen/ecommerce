@@ -33,6 +33,7 @@ function ButtonsLoginRegister({ handleClickPageChange }) {
 
 function Header() {
   const navigator = useNavigate();
+  const {pathname} = useLocation()
 
   const [showMenuHamburguer, setShowMenuHamburguer] = useState(false);
 
@@ -47,8 +48,9 @@ function Header() {
   };
 
   return (
+      pathname === "/login" ? null : pathname === "/cadastro" ? null : (
     <header className="bg-blue-900 items-center pt-5 pb-5 flex flex-col lg:grid-rows-2 ">
-      <div className="flex justify-between flex-col lg:justify-start lg:flex-row  items-center h-20  w-[90vw]">
+      <div className="flex justify-between flex-col lg:justify-start lg:flex-row  items-center h-20  w-[90vw] lg:max-w-[1440px]">
         <aside
           className={`z-10 w-screen h-screen fixed top-0  bg-slate-100 transition-all duration-300 ease-in-out  ${
             showMenuHamburguer ? "left-0 " : " left-[-100vw]"
@@ -111,7 +113,7 @@ function Header() {
         />
       </div>
     </header>
-  );
+  ));
 }
 
 export default Header;
