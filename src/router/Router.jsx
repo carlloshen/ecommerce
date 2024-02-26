@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "../pages/login/Login";
 import NotFound from "../pages/notFound/NotFound";
-import Cadastro from "../pages/cadastro/Cadastro";
+import LoginECadastro from "../pages/loginECadastro/LoginECadastro";
 import MeusPedidos from "../pages/meusPedidos/MeusPedidos";
 import Home from "../pages/home/Home";
 
@@ -10,8 +9,8 @@ function Router() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/login" element={<LoginECadastro />} />
+        <Route path="/cadastro" element={<LoginECadastro />} />
         <Route path="/produtos" element="produtos" />
         <Route path="/categorias" element="categorias" />
         <Route path="/meusPedidos" element={<MeusPedidos />} />
