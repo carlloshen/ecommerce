@@ -1,6 +1,6 @@
 function InputHeader() {
   return (
-    <div className="relative ml-5 mr-5">
+    <div className="relative">
       <svg
         className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
         fill="none"
@@ -17,7 +17,7 @@ function InputHeader() {
       <input
         type="text"
         placeholder="Search"
-        className="w-full h-10 py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white "
+        className="w-full  h-10 py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white"
       />
     </div>
   );
