@@ -13,6 +13,7 @@ function Router() {
         <Route path="/login" element={<LoginECadastro />} />
         <Route path="/cadastro" element={<LoginECadastro />} />
         <Route path="/produtos" element="produtos" />
+        <Route path="/produtos/:id" element="produta" />
         <Route path="/categorias" element={<Categorias/>} />
         <Route path="/meusPedidos" element={<MeusPedidos />} />
         <Route path="*" element={<NotFound />} />
