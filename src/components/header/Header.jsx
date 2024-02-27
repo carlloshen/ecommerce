@@ -7,24 +7,24 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../navbar/Navbar";
 // ! consertar isso
-function ButtonsLoginRegister({ handleClickPageChange }) {
+function ButtonsLoginRegister({ handleClickPageChange, classNameButtonSignUp, classNameButtonLogin }) {
   return (
     <div className="flex justify-between items-center gap-[1vw]">
       <button
         id="cadastro"
-        className="text-stone-500 hidden lg:block font-semibold hover:bg-slate-300 lg:hover:bg-transparent text-sm pl-3 pr-3 min-w-[30px] h-[30px] rounded-md lg:text-white"
+        className={classNameButtonSignUp}
         onClick={(element) => handleClickPageChange(element)}
       >
         Cadastre-se
       </button>
       <button
         id="login"
-        className="bg-blue-700 hidden lg:block rounded-md text-white w-[7vw] h-[30px] text-sm front-bold hover:bg-blue-900 lg:hover:bg-orange-500 lg:bg-orange-500"
+        className={classNameButtonLogin}
         onClick={(element) => handleClickPageChange(element)}
       >
         Entrar
       </button>
-      <button className="lg:order-1 ">
+      <button className="lg:order-1 hidden lg:block">
         <FaCartShopping className="text-white text-2xl" />
       </button>
     </div>
@@ -75,11 +75,13 @@ function Header() {
             <hr className="mb-3" />
             <ButtonsLoginRegister
               handleClickPageChange={handleClickPageChange}
+              classNameButtonSignUp={"text-stone-500 lg:none font-semibold hover:bg-slate-300  text-sm pl-3 pr-3 min-w-[30px] h-[30px] rounded-md lg:text-white"}
+              classNameButtonLogin={"bg-blue-700 lg:none rounded-md text-white w-[30vw] h-[30px] text-sm front-bold hover:bg-blue-900"}
             />
           </div>
         </aside>
 
-        <div className="flex w-full justify-between">
+        <div className="flex w-full  justify-between">
           <button
             className="lg:hidden"
             onClick={() => handleShowMenuHamburguer(true)}
@@ -93,12 +95,17 @@ function Header() {
               className=" w-[71.56px] h-[28px] object-cover "
             />
           </div>
+          <button className="lg:hidden">
+            <FaCartShopping className="text-white text-2xl" />
+          </button>
           <div className=" hidden lg:block order-1 mt-3 lg:mt-0 lg:order-0 grow w-[38vw] max-w-[550px] lg:mr-[2vw]">
             <InputHeader />
           </div>
-          <div className="lg:order-1  ">
+          <div className="lg:order-1 hidden">
             <ButtonsLoginRegister
               handleClickPageChange={handleClickPageChange}
+              classNameButtonSignUp={"hidden text-white lg:block font-semibold text-sm pl-3 pr-3 min-w-[30px] h-[30px] rounded-md"}
+              classNameButtonLogin={"hidden lg:block rounded-md text-white w-[7vw] h-[30px] text-sm front-bold lg:hover:bg-orange-600 bg-orange-500"}
             />
           </div>
         </div>
