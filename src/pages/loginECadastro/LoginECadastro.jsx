@@ -109,7 +109,9 @@ function LoginECadastro() {
   const { pathname } = useLocation();
 
   return (
-    <div className="h-screen flex flex-col items-center bg-blue-700 md:grid md:grid-cols-2">
+
+    <div className="h-screen w-screen flex flex-col items-center bg-blue-900 md:grid md:grid-cols-2">
+
       <div className="pt-5 pb-5 mb-5 flex justify-center md:flex-col md:items-center  md:order-1 ">
         <p className="hidden md:block mb-5 text-[32px] text-white max-w-[380px] ">Sua nova experiência em compras online</p>
         <img src={logo} alt="" className="w-20 md:w-80" />
