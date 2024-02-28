@@ -14,7 +14,7 @@ function CategoryCard({categoryName}) {
 
 function Categorias() {
   return (
-    <section className=" w-screen mb-10 mt-10 flex justify-center pt-10 pb-10">
+    <section className=" w-screen mb-20 mt-20 flex justify-center">
       <div className="w-[90vw]">
         <div className="flex flex-wrap items-center w-full gap-4 md:gap-5 justify-center ">
           <CategoryCard categoryName={"Computadores"} />
