@@ -32,7 +32,7 @@ function Produtos() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap items-center w-full gap-2 md:gap-5 justify-center ">
+          <div className="flex flex-wrap items-center w-full gap-2 md:gap-5 justify-center lg:justify-start ">
             <Card />
             <Card />
             <Card />

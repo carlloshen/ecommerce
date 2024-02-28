@@ -1,7 +1,7 @@
 import image from "../../assets/images/tenis.png";
 function CategoryCard({categoryName}) {
   return (
-    <div className="grid grid-cols-3 bg-slate-100  h-[96px] rounded-md pl-3 shadow-md">
+    <div className="grid grid-cols-3 lg:grid-cols-4 bg-slate-100  h-[96px] rounded-md pl-3 shadow-md">
       <div className="col-span-1 flex justify-center items-center">
         <img src={image} alt="" className=" w-[82px] h-[81px] rounded-md shadow-xl" />
       </div>
