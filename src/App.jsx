@@ -5,10 +5,9 @@ import Router from "./router/Router";
 function App() {
   return (
     <>
-
       <Header/>
       <Router/>
-
+      <Footer/>
     </>
   );
 }

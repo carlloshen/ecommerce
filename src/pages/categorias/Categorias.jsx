@@ -1,33 +1,35 @@
-import image from "../../assets/images/tenis.png"
-function CategoryCard (){
-    return(
-        <div className="grid grid-cols-3 bg-slate-100  h-[96px] rounded-md pl-3">
-            <div className="col-span-1 flex justify-center items-center">
-                <img src={image} alt="" className=" w-[82px] h-[81px] rounded-md shadow-xl" />
-            </div>
-            <div className="col-span-2 flex justify-center items-center">
-                <p className="text-xl font-semibold">Acessórios</p>
-            </div>
-        </div>
-    )
+import image from "../../assets/images/tenis.png";
+function CategoryCard({categoryName}) {
+  return (
+    <div className="grid grid-cols-3 bg-slate-100  h-[96px] rounded-md pl-3 shadow-md">
+      <div className="col-span-1 flex justify-center items-center">
+        <img src={image} alt="" className=" w-[82px] h-[81px] rounded-md shadow-xl" />
+      </div>
+      <div className="col-span-2 flex justify-center items-center">
+        <p className="text-xl font-semibold">{categoryName}</p>
+      </div>
+    </div>
+  );
 }
-
-
-
 
 function Categorias() {
   return (
-  <div className="flex flex-wrap gap-5 justify-center mb-10 mt-10">
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-    <CategoryCard/>
-  </div>
+    <section className=" w-screen mb-10 mt-10 flex justify-center pt-10 pb-10">
+      <div className="w-[90vw]">
+        <div className="flex flex-wrap items-center w-full gap-4 md:gap-5 justify-center ">
+          <CategoryCard categoryName={"Computadores"} />
+          <CategoryCard categoryName={"Processadores"} />
+          <CategoryCard categoryName={"Placa-mãe"} />
+          <CategoryCard categoryName={"Memoria"} />
+          <CategoryCard categoryName={"Placa de video"} />
+          <CategoryCard categoryName={"Fonte"} />
+          <CategoryCard categoryName={"Teclado"} />
+          <CategoryCard categoryName={"Mouse"} />
+          <CategoryCard categoryName={"Mousepad"} />
+          <CategoryCard categoryName={"Gift card"} />
+        </div>
+      </div>
+    </section>
   );
 }
 
