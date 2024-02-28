@@ -1,6 +1,6 @@
 import { useState } from "react";
 import smartWatt from "../../assets/images/smartWatt.png";
-function Product() {
+function DetalheProduto() {
   const [quantity, setQuantity] = useState(1);
 
   const handleChangeQuantity = (operator) => {
@@ -58,4 +58,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default DetalheProduto;
