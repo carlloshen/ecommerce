@@ -19,7 +19,7 @@ function Produtos() {
           <div className="hidden lg:block">
             <div className="shadow-lg flex flex-col p-5 gap-5 w-[251px] text-stone-500 font-semibold">
               <div className="flex gap-2 ">
-                <input type="radio" id="" name="computador" value="" checked/>
+                <input type="radio" id="" name="computador" value="" />
                 <label htmlFor="computador"> Computador</label>
               </div>
               <div className="flex gap-2">
