@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar({className,  handleClickPageChange}) {
 
@@ -16,16 +16,16 @@ function Navbar({className,  handleClickPageChange}) {
   return (
   <>
     {linksNavbar.map((link, index) => (
-                <a
+                <Link to={link.path}
                   key={index}
                   id={link.id}
                   className={`${
                     pathname ===  link.path ? "text-orange-500" : null
                   } ${className}`}
-                  onClick={(link) => handleClickPageChange(link)}
+                  onClick={() => handleClickPageChange()}
                 >
                   {link.text}
-                </a>
+                </Link>
               ))}
   </>
   );
