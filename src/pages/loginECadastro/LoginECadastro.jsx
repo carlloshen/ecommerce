@@ -1,11 +1,8 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoMarca from "../../assets/images/icone-4x.png";
 
 function FormCadastro() {
-  const navigator = useNavigate();
-  const handleClickPageChange = () => {
-    navigator("/login");
-  };
+ 
   return (
     <>
       <div className="mb-3">
@@ -51,19 +48,15 @@ function FormCadastro() {
       </button>
       <p className="text-center mb-5">
         Ja possui cadastro ?{" "}
-        <a onClick={handleClickPageChange} className="cursor-pointer text-orange-500">
+        <Link to={"/login"} className="cursor-pointer text-orange-500">
           Clique aqui
-        </a>
+        </Link>
       </p>
     </>
   );
 }
 
 function FormLogin() {
-  const navigator = useNavigate();
-  const handleClickPageChange = () => {
-    navigator("/cadastro");
-  };
 
   return (
     <>
@@ -97,9 +90,9 @@ function FormLogin() {
       </button>
       <p className="text-center mb-5">
         Não possui cadastro ?{" "}
-        <a onClick={handleClickPageChange} className="cursor-pointer text-orange-500">
+        <Link to={"/cadastro"} className="cursor-pointer text-orange-500">
           Clique aqui
-        </a>
+        </Link>
       </p>
     </>
   );
@@ -107,7 +100,6 @@ function FormLogin() {
 
 function LoginECadastro() {
   const { pathname } = useLocation();
-  const navigator = useNavigate()
 
   return (
 
@@ -115,7 +107,9 @@ function LoginECadastro() {
 
       <div className="pt-5 pb-5 mb-5 flex justify-center md:flex-col md:items-center  md:order-1 ">
         <p className="hidden md:block mb-5 text-[32px] text-white max-w-[380px] ">Sua nova experiência em compras online</p>
-        <img src={logoMarca} alt="Logo Marca E-Rede Store" className="w-20 md:w-80 cursor-pointer" onClick={() => navigator("/")} />
+        <Link to={"/"}>
+        <img src={logoMarca} alt="Logo Marca E-Rede Store" className="w-20 md:w-80 cursor-pointer"  />
+        </Link>
       </div>
       <div className="md:w-[50vw] md:h-screen md:items-center md:bg-slate-300 flex justify-center">
         <div className="bg-white w-screen pt-5 max-w-[90%]  md:max-w-[450px] items">
