@@ -22,7 +22,7 @@ function ButtonsLoginRegister({ handleClickPageChange, classNameButtonSignUp, cl
         </button>
       </Link>
       <div className="lg:order-1 hidden lg:block">
-        <Carrinho position={"right-0 mt-3"}/>
+        <Carrinho />
       </div>
     </div>
   );
@@ -87,7 +87,7 @@ function Header() {
             </Link>
           </div>
           <div className="lg:hidden">
-            <Carrinho position={"right-0 mt-3"}/>
+            <Carrinho/>
           </div>
           <div className=" hidden lg:block order-1 mt-3 lg:mt-0 lg:order-0 grow w-[38vw] max-w-[550px] lg:mr-[2vw]">
             <InputHeader />

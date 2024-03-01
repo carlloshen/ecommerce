@@ -1,7 +1,7 @@
 import { FaCartShopping as CarrinhoDeCompras } from "react-icons/fa6";
 import imagemItem from "../../assets/images/tenis.png";
 import { useState } from "react";
-function Carrinho({ position }) {
+function Carrinho() {
   const [showShoppingCart, setShowShoppingCart] = useState(false);
 
   const handleShoppingCart = () => {
@@ -18,7 +18,7 @@ function Carrinho({ position }) {
         <CarrinhoDeCompras className="cursor-pointer" />
       </button>
       <div
-        className={`absolute ${position} transition-all duration-300 ease-in-out  ${
+        className={`absolute right-0 mt-3 transition-all duration-300 ease-in-out  ${
           showShoppingCart ? "block" : "hidden"
         }  z-10 `}
       >
