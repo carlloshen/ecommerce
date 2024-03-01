@@ -6,6 +6,7 @@ import InputHeader from "../inputHeader/InputHeader";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../navbar/Navbar";
+import Carrinho from "../carrinho/Carrinho";
 
 function ButtonsLoginRegister({ handleClickPageChange, classNameButtonSignUp, classNameButtonLogin }) {
   return (
@@ -20,9 +21,9 @@ function ButtonsLoginRegister({ handleClickPageChange, classNameButtonSignUp, cl
           Entrar
         </button>
       </Link>
-      <button className="lg:order-1 hidden lg:block">
-        <FaCartShopping className="text-white text-2xl" />
-      </button>
+      <div className="lg:order-1 hidden lg:block">
+        <Carrinho />
+      </div>
     </div>
   );
 }
@@ -85,9 +86,9 @@ function Header() {
               />
             </Link>
           </div>
-          <button className="lg:hidden">
-            <FaCartShopping className="text-white text-2xl" />
-          </button>
+          <div className="lg:hidden">
+            <Carrinho/>
+          </div>
           <div className=" hidden lg:block order-1 mt-3 lg:mt-0 lg:order-0 grow w-[38vw] max-w-[550px] lg:mr-[2vw]">
             <InputHeader />
           </div>
