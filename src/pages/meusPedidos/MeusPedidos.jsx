@@ -5,11 +5,11 @@ function MeusPedidos() {
   return (
     <section className=" w-screen mb-10 mt-5 flex justify-center ">
       <div className="w-[90vw] flex flex-col items-center md:items-start md:flex-row">
-        <div class="text-center flex relative md:hidden max-w-[250px] mb-5">
+        <div className="text-center flex relative md:hidden max-w-[250px] mb-5">
           <select
             name="categorias"
             id="categorias"
-            class="w-[250px] pr-10 h-[48px] appearance-none text-center font-semibold text-white bg-orange-500 rounded-md"
+            className="w-[250px] pr-10 h-[48px] appearance-none text-center font-semibold text-white bg-orange-500 rounded-md"
           >
             <option value="computadores">Meus Pedidos</option>
             <option value="computadores">Minhas Informações</option>
@@ -20,7 +20,7 @@ function MeusPedidos() {
             width="24"
             height="24"
             fill="#FFFF"
-            class="absolute right-2 top-0 bottom-0 m-auto"
+            className="absolute right-2 top-0 bottom-0 m-auto"
           >
             <path d="M7 10l5 5 5-5z" />
           </svg>
