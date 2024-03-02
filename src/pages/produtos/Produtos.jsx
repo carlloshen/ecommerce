@@ -26,7 +26,7 @@ function Produtos() {
               <path d="M7 10l5 5 5-5z" />
             </svg>
           </div>
-          <div className="hidden lg:block border border-stone-200 shadow-lg">
+          <div className="hidden lg:block border border-stone-200 shadow-lg mt-2 rounded-md">
             <div className=" flex flex-col p-5 gap-5 w-[251px] text-stone-500 font-semibold">
               <div className="flex gap-2 ">
                 <input type="radio" id="" name="computador" value="" />
