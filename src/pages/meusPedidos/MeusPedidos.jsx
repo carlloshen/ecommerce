@@ -26,11 +26,11 @@ function MeusPedidos() {
           </svg>
         </div>
         <div className="p-5 bg-slate-100 rounded-md  gap-3 hidden md:flex flex-col justify-center mr-5 w-[251px] h-[134px]">
-          <Link className="text-stone-500 font-semibold">Meus Pedidos</Link>
+          <Link className="text-orange-500 font-semibold">Meus Pedidos</Link>
           <hr className=" bg-slate-500" />
           <Link className="text-stone-500 font-semibold">Minhas Informações</Link>
         </div>
-        <div className=" p-5 rounded-md bg-slate-100 md:w-full">
+        <div className=" p-5 rounded-md bg-slate-100 md:w-full max-w-[1000px]">
           <div className="flex justify-between">
             <h2 className="text-base font-semibold">Meus Pedidos</h2>
             <h3 className="text-stone-500 font-normal hidden md:block">Status Meus Pedidos</h3>
