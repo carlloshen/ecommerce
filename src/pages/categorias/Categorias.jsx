@@ -1,4 +1,4 @@
-import image from "../../assets/images/tenis-1.png";
+import image from "../../assets/images/tenis.png";
 function CategoryCard({ categoryName }) {
   return (
     <div className="flex flex-col md:flex-row items-center border border-slate-200 bg-slate-200 rounded-md overflow-hidden w-[120px] md:w-[30vw] md:max-w-[250px]  shadow-md">
