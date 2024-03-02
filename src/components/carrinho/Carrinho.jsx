@@ -1,20 +1,38 @@
 import { FaCartShopping as CarrinhoDeCompras } from "react-icons/fa6";
 import imagemItem from "../../assets/images/tenis.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
+function useOutsideClick(ref, callback) {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, callback]);
+}
+
 function Carrinho() {
   const [showShoppingCart, setShowShoppingCart] = useState(false);
+  const shoppingCartRef = useRef(null);
 
   const handleShoppingCart = () => {
     setShowShoppingCart((previousState) => !previousState);
   };
 
-  const teste = () =>{
-    console.log("teste")
-  }
+  const handleCloseShoppingCart = () => {
+    setShowShoppingCart(false);
+  };
+
+  useOutsideClick(shoppingCartRef, handleCloseShoppingCart);
 
   return (
-    <section className="relative">
-      <button className=" text-white text-2xl" onClick={() => handleShoppingCart()}>
+    <section className="relative" ref={shoppingCartRef}>
+      <button className="text-white text-2xl" onClick={() => handleShoppingCart()}>
         <CarrinhoDeCompras className="cursor-pointer" />
       </button>
       <div
@@ -47,8 +65,10 @@ function Carrinho() {
           </div>
 
           <div className="flex justify-between absolute bottom-4 left-4 right-4 ">
-            <button className="text-stone-500 text-[10px]" onClick={() => teste()}>Esvaziar</button>
-            <button className="rounded-md text-white text-sm font-bold h-6 w-[130px] bg-blue-900 text-[10px]" onClick={() => teste()}>
+            <button className="text-stone-500 text-[10px]" onClick={() => handleCloseShoppingCart()}>
+              Esvaziar
+            </button>
+            <button className="rounded-md text-white text-sm font-bold h-6 w-[130px] bg-blue-900 text-[10px]" onClick={() => handleCloseShoppingCart()}>
               Finalizar compra
             </button>
           </div>
