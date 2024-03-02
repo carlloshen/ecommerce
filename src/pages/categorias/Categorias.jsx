@@ -1,12 +1,12 @@
-import image from "../../assets/images/tenis.png";
-function CategoryCard({categoryName}) {
+import image from "../../assets/images/tenis-1.png";
+function CategoryCard({ categoryName }) {
   return (
-    <div className="flex bg-slate-100 w-[250px]  h-[96px] rounded-md pl-2 shadow-md">
-      <div className="mr-2 flex items-center">
-        <img src={image} alt="" className=" w-[82px] h-[81px] rounded-md shadow-xl" />
+    <div className="flex flex-col md:flex-row items-center border border-slate-200 bg-slate-200 rounded-md overflow-hidden w-[120px] md:w-[30vw] md:max-w-[250px]  shadow-md">
+      <div className=" w-[102px] md:w-[200px] ">
+        <img src={image} alt="" className="object-cover w-full h-full" />
       </div>
-      <div className="flex items-center">
-        <p className="text-[19px] font-semibold">{categoryName}</p>
+      <div className="flex text-center items-center w-full h-full bg-white">
+        <p className="text-sm p-2 truncate">{categoryName}</p>
       </div>
     </div>
   );
@@ -14,9 +14,9 @@ function CategoryCard({categoryName}) {
 
 function Categorias() {
   return (
-    <section className=" w-screen mb-20 mt-20 flex justify-center">
-      <div className="md:w-[90vw] ">
-        <div className="flex flex-wrap items-center w-full gap-3 md:gap-4 justify-center md:justify-start max-w-[1200px]">
+    <section className=" w-screen flex flex-col items-center">
+      <div className="flex justify-center mb-14 mt-14">
+        <div className="flex flex-wrap gap-3 md:gap-[1vw] justify-center max-w-[646px] md:max-w-[1300px]">
           <CategoryCard categoryName={"Computadores"} />
           <CategoryCard categoryName={"Processadores"} />
           <CategoryCard categoryName={"Placa-mãe"} />
@@ -26,6 +26,8 @@ function Categorias() {
           <CategoryCard categoryName={"Teclado"} />
           <CategoryCard categoryName={"Mouse"} />
           <CategoryCard categoryName={"Mousepad"} />
+          <CategoryCard categoryName={"Gift card"} />
+          <CategoryCard categoryName={"Gift card"} />
           <CategoryCard categoryName={"Gift card"} />
         </div>
       </div>
