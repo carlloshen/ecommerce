@@ -5,7 +5,7 @@ function Produtos() {
     <>
       <section className=" w-screen mb-10 mt-5 flex justify-center">
         <div className="w-[90vw] flex flex-col  lg:flex-row justify-center items-center lg:items-start">
-          <div className="text-center flex lg:hidden relative max-w-[250px] ">
+          <div className="text-center flex lg:hidden relative max-w-[250px] mb-4">
             <select
               name="categorias"
               id="categorias"
