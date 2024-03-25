@@ -2,11 +2,26 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoMarca from "../../assets/images/icone-4x.png";
 import { useContext, useState } from "react";
 import request from "../../api/axiosHelper";
-import { jwtDecode } from "jwt-decode";
 import { UserContext } from "../../context/userContext";
 
 function FormCadastro() {
- 
+  const navigator = useNavigate();
+  const [userCredentials, setUserCredentials] = useState({ username: "", email: "", password: "" });
+
+  const handleUserCredentialsChange = (credentials) => {
+    const { name, value } = credentials.target;
+    setUserCredentials((prevCredentials) => ({ ...prevCredentials, [name]: value }));
+  };
+
+  const userRegister = async (event) => {
+    event.preventDefault();
+    const register = await request("POST", "/signup", userCredentials);
+    if (register.status === 201) {
+      console.log(register.data);
+      navigator("/login");
+    }
+  };
+
   return (
     <>
       <div className="mb-3">
@@ -16,10 +31,12 @@ function FormCadastro() {
         </label>
         <input
           type="text"
-          name="name"
+          name="username"
           id="name"
           placeholder="Digite seu nome"
           className="bg-slate-100 rounded-sm p-2"
+          value={userCredentials.username}
+          onChange={handleUserCredentialsChange}
         />
       </div>
       <div className="mb-3">
@@ -32,6 +49,8 @@ function FormCadastro() {
           id="email"
           placeholder="Digite seu e-mail"
           className="bg-slate-100  rounded-sm p-2"
+          value={userCredentials.email}
+          onChange={handleUserCredentialsChange}
         />
       </div>
       <div className="mb-5">
@@ -45,9 +64,14 @@ function FormCadastro() {
           id="password"
           placeholder="Digite sua senha"
           className="bg-slate-100  rounded-sm p-2"
+          value={userCredentials.password}
+          onChange={handleUserCredentialsChange}
         />
       </div>
-      <button className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5">
+      <button
+        className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5"
+        onClick={userRegister}
+      >
         Cadastrar
       </button>
       <p className="text-center mb-5">
@@ -61,27 +85,23 @@ function FormCadastro() {
 }
 
 function FormLogin() {
-  const navigator = useNavigate()
-  const [userCredentials, setUserCredentials] =useState({email: "", password: ""})
-  const {setStoredUser} = useContext(UserContext)
+  const navigator = useNavigate();
+  const [userCredentials, setUserCredentials] = useState({ email: "", password: "" });
+  const { setStoredUser } = useContext(UserContext);
 
-
-  const userLogin = async(event) =>{
-    event.preventDefault()
-    const loginRequest = await request("POST", "/login", userCredentials)
-    console.log(loginRequest.data.token)
-    if(loginRequest.data){
-      setStoredUser(loginRequest.data.token)
-      navigator("/")
+  const userLogin = async (event) => {
+    event.preventDefault();
+    const loginRequest = await request("POST", "/login", userCredentials);
+    if (loginRequest.data) {
+      setStoredUser(loginRequest.data.token);
+      navigator("/");
     }
-  }
+  };
 
-  const handleUserCredentialsChange = (credentials) =>{
-    const {name, value} = credentials.target
-    setUserCredentials(prevCredentials => ({...prevCredentials, [name]: value}))
-    
-  }
-
+  const handleUserCredentialsChange = (credentials) => {
+    const { name, value } = credentials.target;
+    setUserCredentials((prevCredentials) => ({ ...prevCredentials, [name]: value }));
+  };
 
   return (
     <>
@@ -114,7 +134,10 @@ function FormLogin() {
           onChange={handleUserCredentialsChange}
         />
       </div>
-      <button onClick={userLogin} className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5">
+      <button
+        onClick={userLogin}
+        className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5"
+      >
         Login
       </button>
       <p className="text-center mb-5">
@@ -131,13 +154,13 @@ function LoginECadastro() {
   const { pathname } = useLocation();
 
   return (
-
     <div className="h-screen w-screen flex flex-col items-center bg-blue-900 md:grid md:grid-cols-2">
-
       <div className="pt-5 pb-5 mb-5 flex justify-center md:flex-col md:items-center  md:order-1 ">
-        <p className="hidden md:block mb-5 text-[32px] text-white max-w-[380px] ">Sua nova experiência em compras online</p>
+        <p className="hidden md:block mb-5 text-[32px] text-white max-w-[380px] ">
+          Sua nova experiência em compras online
+        </p>
         <Link to={"/"}>
-        <img src={logoMarca} alt="Logo Marca E-Rede Store" className="w-20 md:w-80 cursor-pointer"  />
+          <img src={logoMarca} alt="Logo Marca E-Rede Store" className="w-20 md:w-80 cursor-pointer" />
         </Link>
       </div>
       <div className="md:w-[50vw] md:h-screen md:items-center md:bg-slate-300 flex justify-center">
