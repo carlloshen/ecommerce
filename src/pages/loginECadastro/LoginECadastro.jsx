@@ -3,6 +3,7 @@ import logoMarca from "../../assets/images/icone-4x.png";
 import { useContext, useState } from "react";
 import request from "../../api/axiosHelper";
 import { UserContext } from "../../context/userContext";
+import formsValidation from "../../../utils/utils";
 
 function FormCadastro() {
   const navigator = useNavigate();
@@ -15,10 +16,23 @@ function FormCadastro() {
 
   const userRegister = async (event) => {
     event.preventDefault();
-    const register = await request("POST", "/signup", userCredentials);
-    if (register.status === 201) {
-      console.log(register.data);
-      navigator("/login");
+    const validateFields = formsValidation.validateFieldsRegister(userCredentials);
+
+    try {
+      if (validateFields.errorMessage) {
+        throw validateFields.errorMessage;
+      }
+      const register = await request("POST", "/signup", userCredentials);
+      if (register.status === 201) {
+        console.log(register.data);
+        navigator("/login");
+      }
+    } catch (error) {
+      if (error.request && error.request.response) {
+        console.log(JSON.parse(error.request.response).errorMessage);
+        return JSON.parse(error.request.response).errorMessage;
+      }
+      return error;
     }
   };
 
@@ -91,10 +105,25 @@ function FormLogin() {
 
   const userLogin = async (event) => {
     event.preventDefault();
-    const loginRequest = await request("POST", "/login", userCredentials);
-    if (loginRequest.data) {
-      setStoredUser(loginRequest.data.token);
-      navigator("/");
+
+    const validateFields = formsValidation.validateFieldsLogin(userCredentials);
+
+    try {
+      if (validateFields.errorMessage) {
+        throw validateFields.errorMessage;
+      }
+      const loginRequest = await request("POST", "/login", userCredentials);
+      if (loginRequest.data) {
+        setStoredUser(loginRequest.data.token);
+        navigator("/");
+      }
+    } catch (error) {
+      if (error.request && error.request.response) {
+        console.log(JSON.parse(error.request.response).errorMessage);
+        return JSON.parse(error.request.response).errorMessage;
+      }
+      console.log(error);
+      return error;
     }
   };
 
