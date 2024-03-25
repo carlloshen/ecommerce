@@ -1,5 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoMarca from "../../assets/images/icone-4x.png";
+import { useContext, useState } from "react";
+import request from "../../api/axiosHelper";
+import { jwtDecode } from "jwt-decode";
+import { UserContext } from "../../context/userContext";
 
 function FormCadastro() {
  
@@ -57,6 +61,27 @@ function FormCadastro() {
 }
 
 function FormLogin() {
+  const navigator = useNavigate()
+  const [userCredentials, setUserCredentials] =useState({email: "", password: ""})
+  const {setStoredUser} = useContext(UserContext)
+
+
+  const userLogin = async(event) =>{
+    event.preventDefault()
+    const loginRequest = await request("POST", "/login", userCredentials)
+    console.log(loginRequest.data.token)
+    if(loginRequest.data){
+      setStoredUser(loginRequest.data.token)
+      navigator("/")
+    }
+  }
+
+  const handleUserCredentialsChange = (credentials) =>{
+    const {name, value} = credentials.target
+    setUserCredentials(prevCredentials => ({...prevCredentials, [name]: value}))
+    
+  }
+
 
   return (
     <>
@@ -70,6 +95,8 @@ function FormLogin() {
           id="email"
           placeholder="Digite seu e-mail"
           className="bg-slate-100  rounded-sm p-2"
+          value={userCredentials.email}
+          onChange={handleUserCredentialsChange}
         />
       </div>
       <div className="mb-5">
@@ -83,9 +110,11 @@ function FormLogin() {
           id="password"
           placeholder="Digite sua senha"
           className="bg-slate-100  rounded-sm p-2"
+          value={userCredentials.password}
+          onChange={handleUserCredentialsChange}
         />
       </div>
-      <button className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5">
+      <button onClick={userLogin} className="bg-orange-500 text-white font-semibold text-base h-[60px] rounded-md w-full max-w-[250px] mb-5">
         Login
       </button>
       <p className="text-center mb-5">
