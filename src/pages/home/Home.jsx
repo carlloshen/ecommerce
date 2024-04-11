@@ -1,8 +1,22 @@
 import Card from "../../components/card/Card";
 import PromocaoMobile from "../../assets/images/promocao-mobile.png";
 import PromocaoDesktop from "../../assets/images/banner-desktop-1.png";
+import { useContext, useEffect } from "react";
+import request from "../../api/axiosHelper";
+import { ProductContext } from "../../context/productContext";
 
 function Home() {
+
+  const {product, setProducts} = useContext(ProductContext)
+console.log(product)
+  useEffect(() =>{
+    const requestProducts = async() =>{
+      const requestProduct = await request("GET", "/products", {})
+      setProducts(requestProduct.data)
+    }
+    requestProducts()
+  },[])
+
   return (
     <>
       <main className="mb-10 w-screen ">
@@ -15,18 +29,9 @@ function Home() {
           <div className="md:w-[90vw] flex flex-col ">
             <h2 className="text-blue-900 font-semibold p-3">Destaques</h2>
             <div className="flex flex-wrap items-center w-full gap-2 md:gap-5 justify-center md:justify-start">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              {Object.keys(product).map((item) =>(
+                <Card key={product[item].id} name={product[item].name} price={product[item].price} id_category={product[item].category_name} image={product[item].image}/>
+              ))}
             </div>
           </div>
         </section>
